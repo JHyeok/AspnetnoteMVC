@@ -33,3 +33,6 @@ C:\Users\JaeHyuk\source\repos\Aspnetnote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1
 C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
 C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
 C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\Razor\Views\Home\LoginSuccess.g.cshtml.cs
+C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\Razor\Views\Note\Add.g.cshtml.cs
+C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\Razor\Views\Note\Edit.g.cshtml.cs
+C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\Razor\Views\Note\Index.g.cshtml.cs
