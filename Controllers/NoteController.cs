@@ -14,8 +14,8 @@ namespace AspnetNote.MVC6.Controllers
         /// </summary>
         /// <returns></returns>
         public IActionResult Index()
-        {            
-            if(HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
+        {
+            if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
             {
                 // 로그인이 안된 상태
                 return RedirectToAction("Login", "Account");
@@ -26,6 +26,25 @@ namespace AspnetNote.MVC6.Controllers
                 return View(list);
             }
             
+        }
+
+        /// <summary>
+        /// 게시판 상세
+        /// </summary>
+        /// <param name="NoteNo"></param>
+        /// <returns></returns>
+        public IActionResult Detail(int NoteNo)
+        {
+            if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
+            {
+                // 로그인이 안된 상태
+                return RedirectToAction("Login", "Account");
+            }
+            using (var db = new AspnetNoteDbContext())
+            {
+                var note = db.Notes.FirstOrDefault(n => n.NoteNo.Equals(NoteNo));
+                return View(note);
+            }
         }
 
         /// <summary>
