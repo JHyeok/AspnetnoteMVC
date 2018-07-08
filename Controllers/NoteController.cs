@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspnetNote.MVC6.Controllers
 {
@@ -22,10 +24,10 @@ namespace AspnetNote.MVC6.Controllers
             }
             using (var db = new AspnetNoteDbContext())
             {
-                var list = db.Notes.ToList();
-                return View(list);
+                var UsersWithNotes = db.Notes.Include(uwn => uwn.User).ToList();
+                return View(UsersWithNotes);
             }
-            
+
         }
 
         /// <summary>
@@ -42,7 +44,7 @@ namespace AspnetNote.MVC6.Controllers
             }
             using (var db = new AspnetNoteDbContext())
             {
-                var note = db.Notes.FirstOrDefault(n => n.NoteNo.Equals(NoteNo));
+                var note = db.Notes.Include(uwn => uwn.User).FirstOrDefault(n => n.NoteNo.Equals(NoteNo));
                 return View(note);
             }
         }
@@ -62,7 +64,7 @@ namespace AspnetNote.MVC6.Controllers
         }
         
         [HttpPost]
-        public IActionResult Add(Note model)
+        public IActionResult Add(Notes model)
         {
             if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
             {

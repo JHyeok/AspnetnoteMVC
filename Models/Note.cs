@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AspnetNote.MVC6.Models
 {
-    public class Note
+    public class Notes
     {
         /// <summary>
         /// 게시물 번호

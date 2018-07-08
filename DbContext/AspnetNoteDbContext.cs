@@ -1,5 +1,6 @@
 ﻿using AspnetNote.MVC6.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace AspnetNote.MVC6.DataContext
 {
@@ -8,7 +9,7 @@ namespace AspnetNote.MVC6.DataContext
         // Table을 생성하는 코드
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Note> Notes { get; set; }
+        public DbSet<Notes> Notes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
