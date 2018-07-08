@@ -13,7 +13,7 @@
                 <label>글쓴이 : </label> @Model.User.UserName
             </div>
             <div class="panel-body">
-                @Model.NoteContents
+                @Html.Raw(Model.NoteContents)
             </div>
             <div class="panel-footer text-right">
                 <a class="btn btn-primary" asp-controller="Note" asp-action="Index">목록</a>
