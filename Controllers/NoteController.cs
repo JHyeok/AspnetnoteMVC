@@ -25,7 +25,7 @@ namespace AspnetNote.MVC6.Controllers
             using (var db = new AspnetNoteDbContext())
             {
                 // Notes 와 User 테이블 조인
-                var UsersWithNotes = db.Notes.Include(uwn => uwn.User).ToList();
+                var UsersWithNotes = db.Notes.Include(uwn => uwn.User).OrderByDescending(uwn => uwn.NoteNo).ToList();
                 return View(UsersWithNotes);
             }
 
