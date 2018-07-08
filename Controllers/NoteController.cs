@@ -24,6 +24,7 @@ namespace AspnetNote.MVC6.Controllers
             }
             using (var db = new AspnetNoteDbContext())
             {
+                // Notes 와 User 테이블 조인
                 var UsersWithNotes = db.Notes.Include(uwn => uwn.User).ToList();
                 return View(UsersWithNotes);
             }
@@ -44,6 +45,7 @@ namespace AspnetNote.MVC6.Controllers
             }
             using (var db = new AspnetNoteDbContext())
             {
+                // Notes 와 User 테이블 조인
                 var note = db.Notes.Include(uwn => uwn.User).FirstOrDefault(n => n.NoteNo.Equals(NoteNo));
                 return View(note);
             }
