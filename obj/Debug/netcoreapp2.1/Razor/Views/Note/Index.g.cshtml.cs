@@ -79,7 +79,7 @@ using AspnetNote.MVC6.Models;
             WriteLiteral("                ");
             EndContext();
             BeginContext(473, 96, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88e790f06f2a40969750d43781837e59", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d8200df4eb44616b7e07d31fcfdb52c", async() => {
                 BeginContext(551, 14, false);
 #line 18 "C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\Views\Note\Index.cshtml"
                                                                                         Write(note.NoteTitle);
@@ -138,7 +138,7 @@ using AspnetNote.MVC6.Models;
             WriteLiteral("    </tbody>\r\n</table>\r\n");
             EndContext();
             BeginContext(682, 76, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b61243c11e8435cba7b4ddba788c239", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "075c95818e5a4c059e5f65f41cbf27a2", async() => {
                 BeginContext(748, 6, true);
                 WriteLiteral("게시물 작성");
                 EndContext();
