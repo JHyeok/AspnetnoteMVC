@@ -70,7 +70,7 @@ namespace AspnetNote.MVC6.Controllers
         /// </summary>
         /// <param name="NoteNo"></param>
         /// <returns></returns>
-        public IActionResult Detail(int NoteNo)
+        public async Task<IActionResult> Detail(int NoteNo)
         {
             if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
             {
@@ -80,7 +80,7 @@ namespace AspnetNote.MVC6.Controllers
             using (var db = new AspnetNoteDbContext())
             {
                 // Notes 와 User 테이블 조인
-                var note = db.Notes.Include(uwn => uwn.User).FirstOrDefault(n => n.NoteNo.Equals(NoteNo));
+                var note = await db.Notes.Include(uwn => uwn.User).FirstOrDefaultAsync(n => n.NoteNo.Equals(NoteNo));
                 return View(note);
             }
         }
@@ -100,7 +100,7 @@ namespace AspnetNote.MVC6.Controllers
         }
         
         [HttpPost]
-        public IActionResult Add(Notes model)
+        public async Task<IActionResult> Add(Notes model)
         {
             if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
             {
@@ -113,7 +113,7 @@ namespace AspnetNote.MVC6.Controllers
             {
                 using (var db = new AspnetNoteDbContext())
                 {
-                    db.Notes.Add(model);
+                    await db.Notes.AddAsync(model);
 
                     if(db.SaveChanges() > 0)
                     {
@@ -136,7 +136,7 @@ namespace AspnetNote.MVC6.Controllers
                 // 로그인이 안된 상태
                 return RedirectToAction("Login", "Account");
             }
-            return View();
+            return Redirect("Add");
         }
 
         /// <summary>
