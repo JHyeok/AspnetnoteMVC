@@ -93,7 +93,7 @@ using ReflectionIT.Mvc.Paging;
             WriteLiteral("                    ");
             EndContext();
             BeginContext(549, 96, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e3de1189a62d446dad6b91210a4c6c83", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "82f1f3712f604219be89d3bcf2496359", async() => {
                 BeginContext(627, 14, false);
 #line 20 "C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\Views\Note\Index.cshtml"
                                                                                             Write(note.NoteTitle);
@@ -152,12 +152,12 @@ using ReflectionIT.Mvc.Paging;
             WriteLiteral("    </tbody>\r\n</table>\r\n");
             EndContext();
             BeginContext(770, 580, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ce00bae1972b4d0299300ceb1a0586cb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dee3fe18393a4ca9ae0b2ad2c6efa288", async() => {
                 BeginContext(821, 79, true);
                 WriteLiteral("\r\n    <select class=\"selectpicker\" id=\"searchType\" name=\"searchType\">\r\n        ");
                 EndContext();
                 BeginContext(900, 35, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5d573f20f66749c493ccde8f8ee19f25", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93b2347681fa4ce988070049664e77b3", async() => {
                     BeginContext(924, 2, true);
                     WriteLiteral("전체");
                     EndContext();
@@ -179,7 +179,7 @@ using ReflectionIT.Mvc.Paging;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(945, 37, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "65bfdbd46867494193173482d1c28d60", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "36fd54f03b5b4ab1937bf3ba5441876e", async() => {
                     BeginContext(971, 2, true);
                     WriteLiteral("제목");
                     EndContext();
@@ -201,7 +201,7 @@ using ReflectionIT.Mvc.Paging;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(992, 37, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe6687641ee34edcaeea71a9033134b2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6153afecc2248fcb50f98a55866b270", async() => {
                     BeginContext(1017, 3, true);
                     WriteLiteral("작성자");
                     EndContext();
@@ -223,7 +223,7 @@ using ReflectionIT.Mvc.Paging;
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(1039, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0560d2e910c411c9c431610a18bc3c2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8fe0e6efe7e418d9faa25f9f0273b52", async() => {
                     BeginContext(1068, 2, true);
                     WriteLiteral("내용");
                     EndContext();
@@ -295,7 +295,7 @@ WriteAttributeValue("", 1522, Model, 1522, 6, false);
             WriteLiteral(" />\r\n</nav>\r\n<div class=\"text-right\">\r\n    ");
             EndContext();
             BeginContext(1572, 76, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7228ea0faeee4daa8dc809b1e89ad0ae", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be81ed46f3434dbda9f5361d6a8ceb1b", async() => {
                 BeginContext(1638, 6, true);
                 WriteLiteral("게시물 작성");
                 EndContext();

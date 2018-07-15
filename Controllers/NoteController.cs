@@ -129,20 +129,57 @@ namespace AspnetNote.MVC6.Controllers
         /// 게시물 수정
         /// </summary>
         /// <returns></returns>
-        public IActionResult Edit()
+        public async Task<IActionResult> Edit(int NoteNo)
         {
             if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
             {
                 // 로그인이 안된 상태
                 return RedirectToAction("Login", "Account");
             }
-            return Redirect("Add");
+            using (var db = new AspnetNoteDbContext())
+            {
+                // Notes 와 User 테이블 조인
+                var note = await db.Notes.Include(uwn => uwn.User).FirstOrDefaultAsync(n => n.NoteNo.Equals(NoteNo));
+                if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == note.UserNo)
+                {
+                    return View(note);
+                }
+                // 메세지나 오류 처리 해야함 또는 오류페이지 만들어야 함
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Notes model, int NoteNo)
+        {
+            if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
+            {
+                // 로그인이 안된 상태
+                return RedirectToAction("Login", "Account");
+            }
+            using (var db = new AspnetNoteDbContext())
+            {
+                // Notes 와 User 테이블 조인
+                var note = await db.Notes.Include(uwn => uwn.User).FirstOrDefaultAsync(n => n.NoteNo.Equals(NoteNo));
+
+                note.NoteTitle = model.NoteTitle;
+                note.NoteContents = model.NoteContents;
+
+                db.Notes.Update(note);
+                if (db.SaveChanges() > 0)
+                {
+                    return Redirect("index");
+                }
+                // 메세지나 오류 처리 해야함 또는 오류페이지 만들어야 함
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         /// <summary>
         /// 게시물 삭제
         /// </summary>
         /// <returns></returns>
+        [HttpPost]
         public async Task<IActionResult> Delete(int NoteNo)
         {
             if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)

@@ -98,7 +98,7 @@ using AspnetNote.MVC6.Models;
             WriteLiteral("\r\n            </div>\r\n            <div class=\"panel-footer text-right\">\r\n                ");
             EndContext();
             BeginContext(590, 74, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37558e086a034604b126d4a226f3c31f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "25fd3373be134d77a0195175bff79ca0", async() => {
                 BeginContext(658, 2, true);
                 WriteLiteral("목록");
                 EndContext();
@@ -123,7 +123,7 @@ using AspnetNote.MVC6.Models;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(682, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f80b2fe405d44fed80904c7446957044", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74adb2198ded4123844b364664d381e0", async() => {
                 BeginContext(782, 2, true);
                 WriteLiteral("수정");
                 EndContext();
@@ -161,7 +161,7 @@ using AspnetNote.MVC6.Models;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(806, 108, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79eddc5dbb9d4fd4a7a73ef3ce1a6ca2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08bf7b6b972e444c8b80ad6852995f75", async() => {
                 BeginContext(908, 2, true);
                 WriteLiteral("삭제");
                 EndContext();
