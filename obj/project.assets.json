@@ -2737,6 +2737,21 @@
           "Node.js": "0.10.26.1"
         }
       },
+      "ReflectionIT.Mvc.Paging/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc": "2.1.0",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.Views.dll": {},
+          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.Views.dll": {},
+          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.dll": {}
+        }
+      },
       "Remotion.Linq/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -9261,6 +9276,17 @@
         "tools/uninstall.ps1"
       ]
     },
+    "ReflectionIT.Mvc.Paging/3.0.0": {
+      "sha512": "3dutXZwIf+J4r7y+YbcCzSNY/SXTWwg/8A6zHTiwyLnzf23VEI5Q92r1A9FfKEc6AtCy2D0DKn8tieKe9S9BHg==",
+      "type": "package",
+      "path": "reflectionit.mvc.paging/3.0.0",
+      "files": [
+        "lib/netstandard2.0/ReflectionIT.Mvc.Paging.Views.dll",
+        "lib/netstandard2.0/ReflectionIT.Mvc.Paging.dll",
+        "reflectionit.mvc.paging.3.0.0.nupkg.sha512",
+        "reflectionit.mvc.paging.nuspec"
+      ]
+    },
     "Remotion.Linq/2.2.0": {
       "sha512": "fK/76UmpC0FXBlGDFVPLJHQlDLYnGC+XY3eoDgCgbtrhi0vzbXDQ3n/IYHhqSKqXQfGw/u04A1drWs7rFVkRjw==",
       "type": "package",
@@ -13828,7 +13854,8 @@
       "Microsoft.EntityFrameworkCore >= 2.1.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.1.1",
       "Microsoft.EntityFrameworkCore.Tools >= 2.1.1",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "ReflectionIT.Mvc.Paging >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -13906,6 +13933,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "ReflectionIT.Mvc.Paging": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           }
         },
         "imports": [

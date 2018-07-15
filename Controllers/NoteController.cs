@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 
 namespace AspnetNote.MVC6.Controllers
 {
@@ -15,7 +16,8 @@ namespace AspnetNote.MVC6.Controllers
         /// 게시판 리스트
         /// </summary>
         /// <returns></returns>
-        public IActionResult Index()
+        /// 비동기 및 페이징기능 추가
+        public async Task<IActionResult> Index(int page = 1)
         {
             if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
             {
@@ -25,7 +27,10 @@ namespace AspnetNote.MVC6.Controllers
             using (var db = new AspnetNoteDbContext())
             {
                 // Notes 와 User 테이블 조인
-                var UsersWithNotes = db.Notes.Include(uwn => uwn.User).OrderByDescending(uwn => uwn.NoteNo).ToList();
+                //var UsersWithNotes = db.Notes.Include(uwn => uwn.User).OrderByDescending(uwn => uwn.NoteNo).ToListAsync();
+                //return View(await UsersWithNotes);
+                var query = db.Notes.AsNoTracking().Include(uwn => uwn.User).OrderByDescending(uwn => uwn.NoteNo);
+                var UsersWithNotes = await PagingList.CreateAsync(query, 10, page);
                 return View(UsersWithNotes);
             }
 

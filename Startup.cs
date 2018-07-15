@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ReflectionIT.Mvc.Paging;
 
 namespace AspnetNote.MVC6
 {
@@ -43,6 +44,11 @@ namespace AspnetNote.MVC6
             // Identity
 
             // Web API 관련 기능
+
+            // 게시판 페이징 기능
+#pragma warning disable CS0618 // 형식 또는 멤버는 사용되지 않습니다.
+            services.AddPaging();
+#pragma warning restore CS0618 // 형식 또는 멤버는 사용되지 않습니다.
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
