@@ -24,10 +24,22 @@
         }
     </tbody>
 </table>
-<nav>
+<form method="get" class="form-inline text-center">
+    <select class="selectpicker" id="searchType" name="searchType">
+        <option value="NoteAll">전체</option>
+        <option value="NoteTitle">제목</option>
+        <option value="UserName">작성자</option>
+        <option value="NoteContents">내용</option>
+    </select>
+    <input name="search" class="form-control" placeholder="검색" value="@Model.RouteValue["Filter"]" />
+    <button type="submit" class="btn btn-info">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 검색
+    </button>
+</form>
+<nav class="text-center">
     @await this.Component.InvokeAsync("Pager", new { PagingList = this.Model })
 </nav>
-<nav>
+<nav class="text-center">
     <vc:pager paging-list="@Model" />
 </nav>
 <div class="text-right">

@@ -37,3 +37,5 @@ C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1
 C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\AspnetNote.MVC6.Views.pdb
 C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\AspnetNote.MVC6.csproj.CopyComplete
 C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\Razor\Views\Note\Detail.g.cshtml.cs
+C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Pager\Bootstrap3.g.cshtml.cs
+C:\Users\JaeHyuk\source\repos\AspnetNote\AspnetNote.MVC6\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Pager\Bootstrap4.g.cshtml.cs

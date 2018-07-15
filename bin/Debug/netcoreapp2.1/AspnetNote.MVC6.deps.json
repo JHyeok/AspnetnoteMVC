@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "4097a269ce6fcbc726136294c7fb12152bd03867"
+    "signature": "c8832d7ec062ac214f375451595c7962a17005b5"
   },
   "compilationOptions": {
     "defines": [
@@ -31,8 +31,7 @@
           "Microsoft.EntityFrameworkCore": "2.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
-          "Microsoft.NETCore.App": "2.1.0",
-          "ReflectionIT.Mvc.Paging": "3.0.0"
+          "Microsoft.NETCore.App": "2.1.0"
         },
         "runtime": {
           "AspnetNote.MVC6.dll": {}
@@ -319,26 +318,6 @@
       "NoGit/0.0.8": {
         "dependencies": {
           "Node.js": "0.10.28"
-        }
-      },
-      "ReflectionIT.Mvc.Paging/3.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.1"
-        },
-        "runtime": {
-          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.Views.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.0.0"
-          },
-          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.Views.dll": {},
-          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3410,13 +3389,6 @@
       "sha512": "sha512-5/qdluqNIPDSeF7gQ4Ab9xpFiyQrvfBtm/eGT5mErTCaEIdMNFidVlxMWc4ShPO7JK2KngyF5bybD3gxFCi/5A==",
       "path": "nogit/0.0.8",
       "hashPath": "nogit.0.0.8.nupkg.sha512"
-    },
-    "ReflectionIT.Mvc.Paging/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3dutXZwIf+J4r7y+YbcCzSNY/SXTWwg/8A6zHTiwyLnzf23VEI5Q92r1A9FfKEc6AtCy2D0DKn8tieKe9S9BHg==",
-      "path": "reflectionit.mvc.paging/3.0.0",
-      "hashPath": "reflectionit.mvc.paging.3.0.0.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

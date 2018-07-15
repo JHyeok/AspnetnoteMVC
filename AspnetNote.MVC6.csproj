@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ReflectionIT.Mvc.Paging\Views\**" />
+    <Content Remove="ReflectionIT.Mvc.Paging\Views\**" />
+    <EmbeddedResource Remove="ReflectionIT.Mvc.Paging\Views\**" />
+    <None Remove="ReflectionIT.Mvc.Paging\Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\node_modules\trumbowyg\dist\plugins\colors\ui\trumbowyg.colors.css" />
     <Content Include="wwwroot\node_modules\trumbowyg\dist\plugins\colors\ui\trumbowyg.colors.min.css" />
     <Content Include="wwwroot\node_modules\trumbowyg\dist\plugins\emoji\ui\trumbowyg.emoji.css" />
@@ -185,7 +192,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
-    <PackageReference Include="ReflectionIT.Mvc.Paging" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -207,9 +213,16 @@
     <Content Update="Views\Note\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Shared\Components\Pager\Bootstrap3.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Components\Pager\Bootstrap4.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ReflectionIT.Mvc.Paging\" />
     <Folder Include="wwwroot\images\upload\" />
   </ItemGroup>
 

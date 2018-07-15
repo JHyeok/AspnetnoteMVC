@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ReflectionIT.Mvc.Paging;
+using Microsoft.AspNetCore.Routing;
 
 namespace AspnetNote.MVC6.Controllers
 {
@@ -17,20 +18,48 @@ namespace AspnetNote.MVC6.Controllers
         /// </summary>
         /// <returns></returns>
         /// 비동기 및 페이징기능 추가
-        public async Task<IActionResult> Index(int page = 1)
+        /// 검색 기능 추가
+        public async Task<IActionResult> Index(string searchType, string search, int page = 1)
         {
-            if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
-            {
-                // 로그인이 안된 상태
-                return RedirectToAction("Login", "Account");
-            }
             using (var db = new AspnetNoteDbContext())
             {
                 // Notes 와 User 테이블 조인
                 //var UsersWithNotes = db.Notes.Include(uwn => uwn.User).OrderByDescending(uwn => uwn.NoteNo).ToListAsync();
                 //return View(await UsersWithNotes);
-                var query = db.Notes.AsNoTracking().Include(uwn => uwn.User).OrderByDescending(uwn => uwn.NoteNo);
-                var UsersWithNotes = await PagingList.CreateAsync(query, 10, page);
+                var query = db.Notes.AsNoTracking().Include(uwn => uwn.User).OrderByDescending(uwn => uwn.NoteNo).AsQueryable();
+                
+                // select box 검색 기능 추가
+                if (!string.IsNullOrWhiteSpace(search))
+                {
+                    switch (searchType)
+                    {
+                        case "NoteTitle":
+                            query = query.Where(uwn => uwn.NoteTitle.Contains(search));
+                            break;
+                        case "UserName":
+                            query = query.Where(uwn => uwn.User.UserName.Contains(search));
+                            break;
+                        case "NoteContents":
+                            query = query.Where(uwn => uwn.NoteContents.Contains(search));
+                            break;
+                        case "NoteAll":
+                            query = query.Where(uwn => uwn.NoteTitle.Contains(search) || uwn.NoteContents.Contains(search));
+                            searchType = "NoteTitle";
+                            break;
+                        default:
+                            query = query.Where(uwn => uwn.NoteTitle.Contains(search) || uwn.NoteContents.Contains(search));
+                            searchType = "NoteTitle";
+                            break;
+                    }
+                    // query = query.Where(uwn => uwn.NoteTitle.Contains(search));
+                }
+
+                var UsersWithNotes = await PagingList.CreateAsync(query, 10, page, "NoteNo", searchType);
+
+                UsersWithNotes.RouteValue = new RouteValueDictionary
+                {
+                    {"filter", search}
+                };
                 return View(UsersWithNotes);
             }
 

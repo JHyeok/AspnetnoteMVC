@@ -46,9 +46,12 @@ namespace AspnetNote.MVC6
             // Web API 관련 기능
 
             // 게시판 페이징 기능
-#pragma warning disable CS0618 // 형식 또는 멤버는 사용되지 않습니다.
-            services.AddPaging();
-#pragma warning restore CS0618 // 형식 또는 멤버는 사용되지 않습니다.
+            services.AddPaging(options =>
+            {
+                options.ViewName = "Bootstrap4";
+                options.HtmlIndicatorDown = " <span>&darr;</span>";
+                options.HtmlIndicatorUp = " <span>&uarr;</span>";
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
