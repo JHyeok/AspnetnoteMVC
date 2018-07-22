@@ -5,6 +5,21 @@ body {
     padding-bottom: 20px;
 }
 
+#comment {
+    width: 900px;
+}
+
+#comment .trumbowyg-box {
+    min-height: 100px !important;
+    height: 200px !important;
+
+}
+
+#comment .trumbowyg-editor {
+    height: 200px !important;
+}
+
+
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */

@@ -1,0 +1,16 @@
+﻿@model AspnetNote.MVC6.Models.NoteComments
+
+<div class="row">
+    <div id="comment" class="col-lg-10">
+        <form class="form-horizontal" method="post" asp-controller="Note" asp-action="Add">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <textarea class="form-control editor" rows="5" asp-for="CommentContents" placeholder="내용을 입력해주세요."></textarea>
+                <span class="text-danger" asp-validation-for="CommentContents"></span>
+            </div>
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary">댓글 쓰기</button>
+            </div>
+        </form>
+    </div>
+</div>

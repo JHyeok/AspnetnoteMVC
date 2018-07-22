@@ -89,6 +89,16 @@ namespace AspnetNote.MVC6.Controllers
             }
         }
 
+        public IActionResult CommentAdd()
+        {
+            if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
+            {
+                // 로그인이 안된 상태
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Detail(int NoteNo, NoteComments model)
         {

@@ -22,6 +22,11 @@
         </div>
     </div>
 </div>
+
+@{NoteComments CommentNote = new NoteComments();
+    CommentNote.NoteNo = @Model.note.NoteNo; }
+
+
 @if (Model.noteComments != null)
 {
     @foreach (var noteComment in Model.noteComments)
@@ -40,5 +45,8 @@
         </div>
     }
 }
+@await Html.PartialAsync("Partials/CommentAdd", CommentNote)
 
+@*TODO : 유저가 로그인 되어있을 때, 댓글창 입력가능 할 수 있도록
+댓글창 크기 조정*@
 
