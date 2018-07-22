@@ -11,6 +11,8 @@ namespace AspnetNote.MVC6.DataContext
 
         public DbSet<Notes> Notes { get; set; }
 
+        public DbSet<NoteComments> NoteComments { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=JAEHYUK-PC\SQLEXPRESS;Database=AspnetNoteDb;User Id=sa; Password = 1q2w3e4r;");

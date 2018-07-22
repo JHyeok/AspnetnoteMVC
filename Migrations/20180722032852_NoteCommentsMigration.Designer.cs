@@ -3,14 +3,16 @@ using AspnetNote.MVC6.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AspnetNote.MVC6.Migrations
 {
     [DbContext(typeof(AspnetNoteDbContext))]
-    partial class AspnetNoteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180722032852_NoteCommentsMigration")]
+    partial class NoteCommentsMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

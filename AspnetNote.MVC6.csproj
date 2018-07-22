@@ -204,6 +204,9 @@
     <Content Update="Views\Home\LoginSuccess.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Note\CommentAdd.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Note\Edit.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

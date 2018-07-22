@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ReflectionIT.Mvc.Paging;
 using Microsoft.AspNetCore.Routing;
+using System.Dynamic;
 
 namespace AspnetNote.MVC6.Controllers
 {
@@ -79,11 +80,15 @@ namespace AspnetNote.MVC6.Controllers
             }
             using (var db = new AspnetNoteDbContext())
             {
-                // Notes 와 User 테이블 조인
-                var note = await db.Notes.Include(uwn => uwn.User).FirstOrDefaultAsync(n => n.NoteNo.Equals(NoteNo));
-                return View(note);
+                dynamic noteNoteComments = new ExpandoObject();
+                // Notes(게시물) 와 NoteComments(게시물 댓글)
+                noteNoteComments.note = await db.Notes.Include(uwn => uwn.User).FirstOrDefaultAsync(n => n.NoteNo.Equals(NoteNo));
+                noteNoteComments.noteComments = await db.NoteComments.FirstOrDefaultAsync(nc => nc.NoteNo.Equals(NoteNo));
+                return View(noteNoteComments);
             }
         }
+        // TODO : 수정, 삭제 버튼에 벨류데이션 체크나 글작성자만 보이도록 하기
+        // 게시물에서 댓글 작성 페이지 만들기와 댓글 작성 처리하기
 
         /// <summary>
         /// 게시물 추가

@@ -1,7 +1,6 @@
-﻿
-<div class="row">
+﻿<div class="row">
     <div class="col-lg-12">
-        <h3 class="page-header">@Model.NoteTitle</h3>
+        <h3 class="page-header">@Model.note.NoteTitle</h3>
     </div>
 </div>
 
@@ -9,18 +8,37 @@
     <div class="col-lg-10">
         <div class="panel panel-default">
             <div class="panel-heading text-left">
-                <label>제목 : </label> @Model.NoteTitle <br/>
-                <label>작성자 : </label> @Model.User.UserName
+                <label>제목 : </label> @Model.note.NoteTitle <br />
+                <label>작성자 : </label> @Model.note.User.UserName
             </div>
             <div class="panel-body">
-                @Html.Raw(Model.NoteContents)
+                @Html.Raw(Model.note.NoteContents)
             </div>
             <div class="panel-footer text-right">
                 <a class="btn btn-primary" asp-controller="Note" asp-action="Index">목록</a>
-                <a class="btn btn-primary" asp-controller="Note" asp-action="Edit" asp-route-NoteNo="@Model.NoteNo">수정</a>
-                <a class="btn btn-primary" asp-controller="Note" asp-action="Delete" asp-route-NoteNo="@Model.NoteNo">삭제</a>
+                <a class="btn btn-primary" asp-controller="Note" asp-action="Edit" asp-route-NoteNo="@Model.note.NoteNo">수정</a>
+                <a class="btn btn-primary" asp-controller="Note" asp-action="Delete" asp-route-NoteNo="@Model.note.NoteNo">삭제</a>
             </div>
         </div>
     </div>
-
 </div>
+@if (Model.noteComments != null)
+{
+    @foreach (var noteComment in Model.noteComments)
+    {
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-left">
+                        <label>작성자 : </label> @noteComment.UserNo
+                    </div>
+                    <div class="panel-body">
+                        @Html.Raw(noteComment.CommentContents)
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
