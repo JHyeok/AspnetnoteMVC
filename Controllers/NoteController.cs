@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using ReflectionIT.Mvc.Paging;
 using Microsoft.AspNetCore.Routing;
 using System.Dynamic;
+using System;
 
 namespace AspnetNote.MVC6.Controllers
 {
@@ -80,13 +81,42 @@ namespace AspnetNote.MVC6.Controllers
             }
             using (var db = new AspnetNoteDbContext())
             {
-                dynamic noteNoteComments = new ExpandoObject();
+                dynamic dNoteComments = new ExpandoObject();
                 // Notes(게시물) 와 NoteComments(게시물 댓글)
-                noteNoteComments.note = await db.Notes.Include(uwn => uwn.User).FirstOrDefaultAsync(n => n.NoteNo.Equals(NoteNo));
-                noteNoteComments.noteComments = await db.NoteComments.FirstOrDefaultAsync(nc => nc.NoteNo.Equals(NoteNo));
-                return View(noteNoteComments);
+                dNoteComments.note = await db.Notes.Include(uwn => uwn.User).FirstOrDefaultAsync(n => n.NoteNo.Equals(NoteNo));
+                dNoteComments.noteComments = await db.NoteComments.Include(nc => nc.User).Where(nc => nc.NoteNo.Equals(NoteNo)).ToListAsync();
+                return View(dNoteComments);
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Detail(int NoteNo, NoteComments model)
+        {
+            if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
+            {
+                // 로그인이 안된 상태
+                return RedirectToAction("Login", "Account");
+            }
+
+            model.UserNo = int.Parse(HttpContext.Session.GetInt32("USER_LOGIN_KEY").ToString());
+            model.NoteNo = NoteNo;
+
+            if (ModelState.IsValid)
+            {
+                using (var db = new AspnetNoteDbContext())
+                {
+                    await db.NoteComments.AddAsync(model);
+
+                    if (db.SaveChanges() > 0)
+                    {
+                        return Redirect("index"); // 동일한 컨트롤 내 이동 
+                    }
+                }
+                ModelState.AddModelError(string.Empty, "댓글 내용을 저장할 수 없습니다.");
+            }
+            return View(model);
+        }
+
         // TODO : 수정, 삭제 버튼에 벨류데이션 체크나 글작성자만 보이도록 하기
         // 게시물에서 댓글 작성 페이지 만들기와 댓글 작성 처리하기
 

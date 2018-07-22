@@ -30,7 +30,7 @@ namespace AspnetNote.MVC6.Models
         public int NoteNo { get; set; }
 
         //// User and Notes 조인
-        //[ForeignKey("NoteNo")]  // FK 설정
-        //public virtual Notes Notes { get; set; }
+        [ForeignKey("UserNo")]    // FK 설정
+        public virtual User User { get; set; }
     }
 }
