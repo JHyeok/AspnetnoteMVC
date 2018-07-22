@@ -5,12 +5,59 @@ body {
     padding-bottom: 20px;
 }
 
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+/* 메인 페이지 링크 css*/
+.mainBoard {
+    font-size: 20px;
+    color: black;
+}
+
+    .mainBoard .atag {
+        font-size: 20px;
+        color: black;
+    }
+
+    .mainBoard .atag a:visited {
+        color: black;
+        text-decoration: none;
+    }
+
+    .mainBoard .atag a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    .mainBoard .atag a:active {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .mainBoard .asign {
+        color: red;
+        font-size: 9px;
+    }
+
+    .mainBoard .asign a:visited {
+        color: red;
+        text-decoration: none;
+    }
+
+    .mainBoard .asign a:hover {
+        color: red;
+        text-decoration: none;
+    }
+
+    .mainBoard .asign a:active {
+        color: red;
+        text-decoration: underline;
+    }
 
 
 input,
