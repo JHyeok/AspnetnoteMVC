@@ -7,17 +7,16 @@ body {
 
 #comment {
     width: 900px;
+    height: 400px;
 }
 
-#comment .trumbowyg-box {
-    min-height: 100px !important;
-    height: 200px !important;
+    #comment .trumbowyg-box.trumbowyg-editor-visible {
+        min-height: 150px;
+    }
 
-}
-
-#comment .trumbowyg-editor {
-    height: 200px !important;
-}
+    #comment .trumbowyg-editor {
+        min-height: 150px;
+    }
 
 
 

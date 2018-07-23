@@ -100,7 +100,7 @@ namespace AspnetNote.MVC6.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Detail(int NoteNo, NoteComments model)
+        public async Task<IActionResult> CommentAdd(NoteComments model)
         {
             if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
             {
@@ -109,17 +109,16 @@ namespace AspnetNote.MVC6.Controllers
             }
 
             model.UserNo = int.Parse(HttpContext.Session.GetInt32("USER_LOGIN_KEY").ToString());
-            model.NoteNo = NoteNo;
 
             if (ModelState.IsValid)
             {
                 using (var db = new AspnetNoteDbContext())
                 {
                     await db.NoteComments.AddAsync(model);
-
+                    string returnUrl = "Detail?NoteNo=" + model.NoteNo;
                     if (db.SaveChanges() > 0)
                     {
-                        return Redirect("index"); // 동일한 컨트롤 내 이동 
+                        return Redirect(returnUrl); // 현재 게시물로 이동
                     }
                 }
                 ModelState.AddModelError(string.Empty, "댓글 내용을 저장할 수 없습니다.");
@@ -128,7 +127,6 @@ namespace AspnetNote.MVC6.Controllers
         }
 
         // TODO : 수정, 삭제 버튼에 벨류데이션 체크나 글작성자만 보이도록 하기
-        // 게시물에서 댓글 작성 페이지 만들기와 댓글 작성 처리하기
 
         /// <summary>
         /// 게시물 추가
