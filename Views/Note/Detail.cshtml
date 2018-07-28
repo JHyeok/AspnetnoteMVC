@@ -16,12 +16,17 @@
             </div>
             <div class="panel-footer text-right">
                 <a class="btn btn-primary" asp-controller="Note" asp-action="Index">목록</a>
-                <a class="btn btn-primary" asp-controller="Note" asp-action="Edit" asp-route-NoteNo="@Model.note.NoteNo">수정</a>
-                <a class="btn btn-primary" asp-controller="Note" asp-action="Delete" asp-route-NoteNo="@Model.note.NoteNo">삭제</a>
+                @if (Model.note.User.UserNo == Model.UserNo)
+                {
+                    <a class="btn btn-primary" asp-controller="Note" asp-action="Edit" asp-route-NoteNo="@Model.note.NoteNo">수정</a>
+                    <a class="btn btn-primary" asp-controller="Note" asp-action="Delete" asp-route-NoteNo="@Model.note.NoteNo">삭제</a>
+                }
             </div>
         </div>
     </div>
 </div>
+
+<h1>이 게시물의 현재 댓글 수 : @Model.CommentsCount</h1>
 
 @{NoteComments CommentNote = new NoteComments();
     CommentNote.NoteNo = @Model.note.NoteNo; }
@@ -45,7 +50,8 @@
         </div>
     }
 }
-@await Html.PartialAsync("Partials/CommentAdd", CommentNote)
-
-@*TODO : 유저가 로그인 되어있을 때, 댓글창 입력가능 할 수 있도록*@
+@if (Model.UserNo != null)
+{
+    @await Html.PartialAsync("Partials/CommentAdd", CommentNote)
+}
 

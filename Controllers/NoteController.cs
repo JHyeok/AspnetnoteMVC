@@ -74,17 +74,14 @@ namespace AspnetNote.MVC6.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Detail(int NoteNo)
         {
-            if (HttpContext.Session.GetInt32("USER_LOGIN_KEY") == null)
-            {
-                // 로그인이 안된 상태
-                return RedirectToAction("Login", "Account");
-            }
             using (var db = new AspnetNoteDbContext())
             {
                 dynamic dNoteComments = new ExpandoObject();
                 // Notes(게시물) 와 NoteComments(게시물 댓글)
                 dNoteComments.note = await db.Notes.Include(uwn => uwn.User).FirstOrDefaultAsync(n => n.NoteNo.Equals(NoteNo));
                 dNoteComments.noteComments = await db.NoteComments.Include(nc => nc.User).Where(nc => nc.NoteNo.Equals(NoteNo)).ToListAsync();
+                dNoteComments.CommentsCount = await db.NoteComments.CountAsync(nc => nc.NoteNo.Equals(NoteNo));
+                dNoteComments.UserNo = HttpContext.Session.GetInt32("USER_LOGIN_KEY");
                 return View(dNoteComments);
             }
         }
@@ -125,8 +122,6 @@ namespace AspnetNote.MVC6.Controllers
             }
             return View(model);
         }
-
-        // TODO : 수정, 삭제 버튼에 벨류데이션 체크나 글작성자만 보이도록 하기
 
         /// <summary>
         /// 게시물 추가
